@@ -1,0 +1,29 @@
+{
+  "name": "lcc",
+  "version": "1.0.0",
+  "description": "Core CSS framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CSS Team",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-css-statistics": "^0.9.7",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-sass-globbing": "^1.5.1",
+    "grunt-sass-lint": "^0.2.2",
+    "grunt-sassdoc": "^2.0.2",
+    "load-grunt-tasks": "^3.5.2",
+    "pixrem": "^3.0.2",
+    "postcss-combine-duplicated-selectors": "^2.2.0",
+    "postcss-discard-comments": "^2.0.4",
+    "postcss-discard-duplicates": "^2.0.2",
+    "sass-lint": "^1.10.2"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,6 @@
+/// This Partial defines the loading order of UI elements into our project
+/// It use Globed files generated from the relevant folder via the Grunt Globing task
+//-- core
+@import '../core/ui/glob-core-ui';
+//--theme overrides and extenders
+@import '../ui/glob-theme-ui';

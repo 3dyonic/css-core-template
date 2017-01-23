@@ -1,0 +1,24 @@
+/// STYLE GUIDE MAP
+///
+/// going by mobile first then interpolate values per breakpoints.
+/// to be used with @function style-guide
+/// @example
+/// example here
+///
+/// @require {variable} $lcc-color-black - description
+/// @group STYLEGUIDE CONFIGURATION
+$lcc-theme-style-guide-map: (
+  // used for
+  colors-primary:(
+    dark: $lcc-color-black,
+  ),
+  colors-secondary:(),
+  font-weight:(),
+  font-sizes:(),
+  typography:(),
+  buttons:(),
+  spacing-margin:(),
+  spacing-padding:(),
+  box-shadow:(),
+  borders:(),
+);

@@ -1,0 +1,75 @@
+///  CONFIG
+/// A map of global config settings. Define any project-level configuration,
+/// feature switches, etc. in here.
+/// {widget-mode} if set to true we assume we have an external css and we need to scope ours like it is a standalone widget.
+/// {components} configuring CORE components to true will include them in output
+$lcc-config: (
+  env: dev,
+  widget-mode: true,
+  style-guide: core,
+  core-components: (
+    buttons: true,
+  ),
+) !default;
+
+// CONFIG SPECIFIC FUNCTIONS
+/// lcc-config-map(<key>)
+///
+/// Example usage:
+///
+/// //for map-get --> get style guide map name from $lcc-config map by using lcc-get-global-config($key);
+/// map-get(lcc-get-global-config(style-guide), $key)
+/// //will result in
+/// map-get($lcc-style-guide-core,$key)
+/// //because map-get($lcc-config, style-guide) == core
+
+@function lcc-config-map($key) {
+  @if map-has-key($lcc-config, $key) {
+    @return unquote("$lcc" + "#{$key}" + map-get($lcc-config, $key));
+  } @else {
+    @warn "no configuration is set for defined #{$key}";
+    @return null;
+  }
+}
+
+/// config-comp
+/// returns boolean or null for a configured component from map configuration
+/// used for defining a core component output
+/// it is assumed that components is always a map
+/// @example
+///   @if lcc-get-comp-config(component name from $lcc-config) == true {
+///   definition of what will happen, will generate a core component output}
+///
+
+@function lcc-config-comp($key, $nested-key) {
+  // condition 1 FAILURE $key does not exist function will return null
+  @if map-has-key(map-get($lcc-config, $key), $nested-key) !=true {
+    @error "#{$nested-key} does not exist for #{$key} within $lcc-config configuration map";
+    @return null;
+  }
+  //condition 2 SUCCESS $key exist and it is false,function will return null
+  @if (map-has-key(map-get($lcc-config, $key), $nested-key) ==true and map-get(map-get($lcc-config, $key), $nested-key) != true) {
+    @return null;
+  }
+
+  //condition 3 SUCCESS $key is set to true , function will return true
+  @if (map-has-key(map-get($lcc-config, $key), $nested-key) ==true and map-get(map-get($lcc-config, $key), $nested-key) == true) {
+    @return true;
+  }
+}
+
+/// check-config-comp
+@function lcc-check-comp($component-name) {
+  // for one comp $key from config maps returns true, else returns false.
+  // if both are true return false
+  @if (map-get(map-get($lcc-config, core-components), $component-name) ==true and (map-get(map-get($lcc-config, theme-components), $component-name) ==true)) {
+    @return false;
+  }
+  @if (map-get(map-get($lcc-config, core-components), $component-name) ==false and (map-get(map-get($lcc-config, theme-components), $component-name) ==false)) {
+    @return false;
+  } @else {
+    @return true;
+  }
+}
+
+

@@ -1,0 +1,12 @@
+/// Condition for initiation of core component: test
+@if lcc-config(test) == true {
+  // defining core component variable map for the component
+  $c-test: (
+    color:yellow
+  );
+
+  //initiating component definition
+  .c-test {
+    color: map-get($c-test, color);
+  }
+}

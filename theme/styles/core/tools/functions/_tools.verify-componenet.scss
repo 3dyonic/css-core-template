@@ -1,0 +1,10 @@
+///
+@function verify-core($key) {
+  @if lcc-config-comp(core-components, buttons) ==true {
+    @warn "true";
+    @return true;
+  } @else {
+    //@warn "false";
+    @return false;
+  }
+}

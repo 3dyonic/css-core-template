@@ -1,0 +1,17 @@
+colors:
+  primary:
+    Dark: "rgb(30, 30, 30)"
+    Light: "rgb(242, 242, 242)"
+  secondary:
+    Red: "rgb(201, 55, 6)"
+    Yellow: "rgb(252, 207, 80)"
+    Blue: "rgb(39, 102, 143)"
+  amazing:
+    Amazing1: "rgb(255,255,255)"
+    Amazing2: "rgb(0,0,0)"
+    Amazing3: "rgb(255,255,255)"
+    Amazing4: "rgb(0,0,0)"
+    Amazing5: "rgb(255,255,255)"
+    Amazing6: "rgb(255,255,255)"
+    Amazing7: "rgb(1,1,1)"
+

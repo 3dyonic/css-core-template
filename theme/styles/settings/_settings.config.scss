@@ -1,0 +1,12 @@
+///  CONFIG
+$lcc-config: (
+  env: dev,
+  standalone: false,
+  styleguide:theme,
+  core-components: (
+    buttons: true,
+  ),
+  theme-components:(
+    buttons: true,
+  ),
+);

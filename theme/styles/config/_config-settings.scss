@@ -1,0 +1,14 @@
+/// This Partial defines the loading order of variables into our project
+/// It use Globed files generated from the relevant folder via the Grunt Globing task
+//-- vendors placeholders
+//--- import order is important
+//----- takes main configuration from core
+@import "../core/settings/settings.config";
+//----- takes main configuration from theme
+@import "../settings/settings.config";
+//----- takes global variables from core
+@import "../core/settings/settings.global";
+//----- takes global variables from theme
+@import "../settings/settings.global";
+//----- takes global corevariables from core
+@import "../core/settings/settings.core";

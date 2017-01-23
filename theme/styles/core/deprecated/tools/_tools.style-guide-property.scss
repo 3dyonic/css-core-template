@@ -1,0 +1,47 @@
+/// Mixin for $property definition using style-guide map
+/// @param {css property} $property - Property to be defined with style-guide value
+/// @param {variable map} $map - style guide map
+/// @param {map key} $key - style guide map key
+/// @param {nested map key} $nested-key [null] - style guide nested map
+/// @output 'property' and 'style-guide' definitions for it using $style-guide map
+///
+/// @example scss - color definiton for .c-test using $color map
+/// //scss
+/// .c-test {
+///      @include style-guide-property(color, $colors, color-test-key);
+///   }
+/// //css
+///   .c-test {
+///     color:blue;
+///   }
+@mixin style-guide-property($property, $map, $key, $nested-key: null) {
+  //TESTS FOR PRIMARY $map and $key
+  //SUCCESS: producing $key when it is not a map
+  //condition 1: FAILURE map is defined but key does not exist
+  @if map-has-key($map, $key) == false {
+    @error "$key does not exist in $map but is defined within style-guide-property mixin instance";
+  }
+  //condition 2: FAILURE map is defined, nested map is not, but value is a nested map
+  @if (map-has-key($map, $key) == true and type-of(map-get($map, $key)) == map and $nested-key==null) {
+    @error "$key is a map but not called as one by style-guide-property mixin instance, $nested-key should be defined";
+  }
+  //condition 3: SUCESS, primary map is defined, primary key exist and key is not a map.
+  @if (map-has-key($map, $key) == true and type-of(map-get($map, $key)) != map and $nested-key==null) {
+    #{$property}: map-get($map, $key);
+  }
+  //TESTS FOR NESTED MAP ($key as map) and $nested-key(as its key)
+  //SUCCESS producing a $nested-key while $key serves as a map.
+  //condition 1: FAILURE $key is not a map so $nested-key can not exist
+  @if (map-has-key($map, $key) == true and type-of(map-get($map, $key)) != map and $nested-key !=null) {
+    @error "$nested-key is defined but $key is not a map for style-guide-property mixin instance"
+  }
+  //condition 2: FAILURE $key is a map but $nested-key does not exist
+  @if (map-has-key($map, $key) == true and type-of(map-get($map, $key)) == map and $nested-key !=null and map-has-key(map-get($map,$key),$nested-key)==false) {
+    @error "$nested-key does not exist for $key for style-guide-property mixin instance";
+  }
+  //condition 3: SUCESS $key is a map and $nested key exist;
+  @if (map-has-key($map, $key) == true and type-of(map-get($map, $key)) == map and map-has-key(map-get($map,$key),$nested-key)) {
+    @debug "success, geting $nested-key for $key(as map) for style-guide-property mixin instance";
+    #{$property}: map-get(map-get($map, $key), $nested-key);
+  }
+}

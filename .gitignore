@@ -1,0 +1,13 @@
+# ignoring webstorm configs
+.idea/
+.DS_Store
+# ignoring css output
+css/
+# ignoring _glob pattern for grunt compiled files
+_glob*.scss
+# ignoring lint report
+report.html
+# ignoring DocSass
+sassDoc/
+# ignoring node_modules
+node_modules/

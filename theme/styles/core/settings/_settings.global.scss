@@ -1,0 +1,13 @@
+// #GLOBAL
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+// DRY VARIABLES, defined once not used directly.
+// -- DRY COLORS
+/// @group DRY VARIABLES
+$lcc-color-white: #fff !default;
+/// @group DRY VARIABLES
+$lcc-color-black: #000 !default;
+
+/// Standardise some UI treatments.
+$global-radius: 3px !default;
+$global-transition: all 300ms ease-in-out !default;

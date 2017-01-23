@@ -1,0 +1,7 @@
+/// This Partial defines the loading order of tools [mixins, functions] into our project
+/// It use Globed files generated from the relevant folder via the Grunt Globing task
+//-- vendors placeholders
+//-- core
+@import '../core/tools/glob-core-tools';
+//--theme overrides and extenders
+@import '../tools/glob-theme-tools';
