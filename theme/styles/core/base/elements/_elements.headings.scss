@@ -4,37 +4,37 @@
 ///http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
 ///
 /// We have all of our heading font sizes defined here. Passing these pixel
-/// values into our `inuit-font-size()` mixin will generate a rem-based
+/// values into our `lcc-font-size()` mixin will generate a rem-based
 /// `font-size` with a pixel fallback, as well as generating a `line-height` that
 /// will sit on our baseline grid.
 
-$inuit-font-size-h1: 36px !default;
-$inuit-font-size-h2: 28px !default;
-$inuit-font-size-h3: 24px !default;
-$inuit-font-size-h4: 20px !default;
-$inuit-font-size-h5: 18px !default;
-$inuit-font-size-h6: 16px !default;
+$lcc-font-size-h1: 36px !default;
+$lcc-font-size-h2: 28px !default;
+$lcc-font-size-h3: 24px !default;
+$lcc-font-size-h4: 20px !default;
+$lcc-font-size-h5: 18px !default;
+$lcc-font-size-h6: 16px !default;
 
 h1 {
-  @include inuit-font-size($inuit-font-size-h1);
+  @include lcc-font-size($lcc-font-size-h1);
 }
 
 h2 {
-  @include inuit-font-size($inuit-font-size-h2);
+  @include lcc-font-size($lcc-font-size-h2);
 }
 
 h3 {
-  @include inuit-font-size($inuit-font-size-h3);
+  @include lcc-font-size($lcc-font-size-h3);
 }
 
 h4 {
-  @include inuit-font-size($inuit-font-size-h4);
+  @include lcc-font-size($lcc-font-size-h4);
 }
 
 h5 {
-  @include inuit-font-size($inuit-font-size-h5);
+  @include lcc-font-size($lcc-font-size-h5);
 }
 
 h6 {
-  @include inuit-font-size($inuit-font-size-h6);
+  @include lcc-font-size($lcc-font-size-h6);
 }

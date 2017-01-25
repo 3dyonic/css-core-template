@@ -11,3 +11,6 @@ report.html
 sassDoc/
 # ignoring node_modules
 node_modules/
+
+# temporary: ignoring deprecated
+theme/deprecated/

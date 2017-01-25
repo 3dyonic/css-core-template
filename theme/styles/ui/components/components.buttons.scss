@@ -7,108 +7,67 @@
 // 5. Force all button-styled elements to appear clickable.
 
 // decide whether its enabled or not using 'lcc-get-comp-config($component-name-in-config-components-map)
-.c-btn {
-  display: inline-block; // [1]
-  vertical-align: middle; // [2]
-  font: inherit; // [3]
-  text-align: center; // [4]
-  margin: 0; // [4]
-  cursor: pointer; // [5]
-  padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
-  transition: $global-transition;
-  border-radius: $global-radius;
-}
-
-// Style variants
-.c-btn--primary {
-  background-color: #4a8ec2;
-
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none; /* [4] */
-    color: #fff;
+@if $config-core-buttons != true {
+  .d-btn {
+    display: inline-block; // [1]
+    vertical-align: middle; // [2]
+    font: inherit; // [3]
+    text-align: center; // [4]
+    margin: 0; // [4]
+    cursor: pointer; // [5]
+    padding: $lcc-global-spacing-unit-small $lcc-global-spacing-unit;
+    transition: $global-transition;
+    border-radius: $global-radius;
   }
 
-  &:hover,
-  &:focus {
-    background-color: #3774a2;
+  // Style variants
+  .c-btn--primary {
+    background-color: #4a8ec2;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none; /* [4] */
+      color: #fff;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: #3774a2;
+    }
+
   }
 
-}
+  .c-btn--secondary {
+    background-color: #2f4054;
 
-.c-btn--secondary {
-  background-color: #2f4054;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: #fff;
+    }
 
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-    color: #fff;
+    &:hover,
+    &:focus {
+      background-color: #1d2733;
+    }
+
   }
 
-  &:hover,
-  &:focus {
-    background-color: #1d2733;
-  }
-
-}
-
-.c-btn--tertiary {
-  background-color: #fff;
-  color: #4a8ec2;
-
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
+  .c-btn--tertiary {
+    background-color: #fff;
     color: #4a8ec2;
-  }
 
-  &:hover,
-  &:focus {
-    color: #3774a2;
-  }
-
-}
-
-// Size variants
-.c-btn--small {
-  padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
-}
-
-.c-btn--large {
-  padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
-}
-
-// Ghost buttons
-// -- Ghost buttons have see-through backgrounds and are bordered.
-$btn-ghost-border-width: 2px;
-
-.c-btn--ghost {
-  border: $btn-ghost-border-width solid currentColor;
-  padding: ($inuit-global-spacing-unit-small - $btn-ghost-border-width) ($inuit-global-spacing-unit - $btn-ghost-border-width);
-
-  &,
-  &:hover,
-  &:active,
-  &:focus {
-    background: none;
-  }
-
-  &.c-btn--small {
-    padding: ($inuit-global-spacing-unit-tiny - $btn-ghost-border-width) ($inuit-global-spacing-unit-small - $btn-ghost-border-width);
-  }
-
-  &.c-btn--large {
-    padding: ($inuit-global-spacing-unit - $btn-ghost-border-width) ($inuit-global-spacing-unit-large - $btn-ghost-border-width);
-  }
-
-  &.c-btn--primary {
-    color: #4a8ec2;
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: #4a8ec2;
+    }
 
     &:hover,
     &:focus {
@@ -117,22 +76,66 @@ $btn-ghost-border-width: 2px;
 
   }
 
-  &.c-btn--secondary {
-    color: #2f4054;
-
-    &:hover,
-    &:focus {
-      color: #1d2733;
-    }
-
+  // Size variants
+  .c-btn--small {
+    padding: $lcc-global-spacing-unit-tiny $lcc-global-spacing-unit-small;
   }
 
-  &.c-btn--tertiary {
-    color: #fff;
+  .c-btn--large {
+    padding: $lcc-global-spacing-unit $lcc-global-spacing-unit-large;
+  }
 
+  // Ghost buttons
+  // -- Ghost buttons have see-through backgrounds and are bordered.
+  $btn-ghost-border-width: 2px;
+
+  .c-btn--ghost {
+    border: $btn-ghost-border-width solid currentColor;
+    padding: ($lcc-global-spacing-unit-small - $btn-ghost-border-width) ($lcc-global-spacing-unit - $btn-ghost-border-width);
+
+    &,
     &:hover,
+    &:active,
     &:focus {
+      background: none;
+    }
+
+    &.c-btn--small {
+      padding: ($lcc-global-spacing-unit-tiny - $btn-ghost-border-width) ($lcc-global-spacing-unit-small - $btn-ghost-border-width);
+    }
+
+    &.c-btn--large {
+      padding: ($lcc-global-spacing-unit - $btn-ghost-border-width) ($lcc-global-spacing-unit-large - $btn-ghost-border-width);
+    }
+
+    &.c-btn--primary {
+      color: #4a8ec2;
+
+      &:hover,
+      &:focus {
+        color: #3774a2;
+      }
+
+    }
+
+    &.c-btn--secondary {
+      color: #2f4054;
+
+      &:hover,
+      &:focus {
+        color: #1d2733;
+      }
+
+    }
+
+    &.c-btn--tertiary {
       color: #fff;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+      }
+
     }
 
   }

@@ -3,9 +3,9 @@
 /// http://www.cssmojo.com/the-very-latest-clearfix-reloaded/
 ///
 /// .usage {
-///   @include inuit-clearfix();
+///   @include lcc-clearfix();
 /// }
-@mixin inuit-clearfix() {
+@mixin lcc-clearfix() {
 
   &:after {
     content: "" !important;

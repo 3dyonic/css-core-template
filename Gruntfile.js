@@ -2,36 +2,98 @@ const grunt = require('grunt')
 
 grunt.initConfig({
     //sort order A-Z
-    cssstats: {
+    analyzecss: {
+        prod: {
+            sources: ['theme/css/styles.css']
+        },
         options: {
-            logConsole: false,
-            jsonOutput: false,
-            htmlOutput: true,
-            uniqueDeclarations: [
-                'font-size',
-                'float',
-                'width',
-                'height',
-                'color',
-                'background-color'
+            encoding: 'utf-8', // encoding to read files
+            warn: 0.95,
+            error: 0.8,
+            padLimit: 40,
+            outputMetrics: true, // can be 'warn' or 'error'
+            outputDuplicateSelectors: true,
+            softFail: true,
+            thresholds: { // all values are maximum values
+                redundantBodySelectors: 100,
+                comments: 100,
+                commentsLength: 100,
+                complexSelectors: 100,
+                complexSelectorsByAttribute: 100,
+                duplicatedSelectors: 100,
+                emptyRules: 100,
+                expressions: 100,
+                oldIEFixes: 100,
+                importants: 100,
+                mediaQueries: 100,
+                oldPropertyPrefixes: 100,
+                qualifiedSelectors: 100,
+                specificityIdAvg: 100,
+                specificityIdTotal: 100,
+                specificityClassAvg: 100,
+                specificityClassTotal: 100,
+                specificityTagAvg: 100,
+                specificityTagTotal: 100,
+                selectorsByAttribute: 100,
+                selectorsByClass: 100,
+                selectorsById: 100,
+                selectorsByPseudo: 100,
+                selectorsByTag: 100,
+                universalSelectors: 100,
+                length: 100000, // 40k
+                rules: 100,
+                selectors: 100,
+                declarations: 100
+            },
+            reportFile: true,
+            reportFormat: 'json',
+        },
+    },
+    csslint: {
+        options: {
+            csslintrc: '.csslintrc',
+            formatters: [
+                {
+                    id: require('csslint-stylish'),
+                    dest: 'theme/report-css-lint.xml'
+                }
+            ]
+        },
+        strict: {
+            options: {
+                import: 2
+            },
+            src: ['theme/css/*.css']
+        }
+    },
+    parker: {
+        options: {
+            metrics: [
+                "TotalStylesheets",
+                "TotalStylesheetSize",
+                "TotalRules",
+                "TotalSelectors",
+                "TotalIdentifiers",
+                "TotalDeclarations",
+                "SelectorsPerRule",
+                "IdentifiersPerSelector",
+                "SpecificityPerSelector",
+                "TopSelectorSpecificity",
+                "TopSelectorSpecificitySelector",
+                "TotalIdSelectors",
+                "TotalUniqueColours",
+                "UniqueColours",
+                "TotalImportantKeywords",
+                "TotalMediaQueries",
+                "MediaQueries",
             ],
-            addOrigin: false,
-            addRawCss: false,
-            addHtmlStyles: true,
-            addGraphs: true,
-            csslint: {
-                clearDefaults: false,
-                ruleset: {
-                    //rulesetFile: 'path/to/rulesetFile.json',
-                    'zero-units': true,
-                    'adjoining-classes': true
-                },
-                groupResults: true
-            }
+            file: "theme/report-css-parker.md",
+            colophon: true,
+            usePackage: true
         },
-        files: {
-            'theme/stats.html': ['theme/css/**/*.css']
-        },
+        src: [
+            'theme/css/styles.css'
+        ]
     },
     postcss: {
         options: {
@@ -146,7 +208,7 @@ grunt.initConfig({
             src: [
                 [
                     'theme/styles/',
-                ]
+                ],
             ],
             options: {
                 dest: 'theme/sassDoc',
@@ -154,6 +216,7 @@ grunt.initConfig({
                     'undefined': 'General',
                     'DRY VARIABLES': 'DRY VARIABLES',
                     'STYLE GUIDE CONFIGURATION': 'STYLE GUIDE CONFIGURATION',
+                    'CORE': 'CORE',
                 },
             },
         },
@@ -162,11 +225,12 @@ grunt.initConfig({
         options: {
             configFile: '.sass-lint.yml',
             formatter: 'html',
-            outputFile: 'theme/report.html',
+            outputFile: 'theme/report-sass-lint.html',
         },
         //* instead of ** for some reason :)
         target: ['theme/styles/*/*.scss'],
     },
+
     watch: {
         gruntfile: {
             files: 'Gruntfile.js',
@@ -180,5 +244,25 @@ grunt.initConfig({
 
 require('load-grunt-tasks')(grunt);
 
-grunt.registerTask('default', ['sass_globbing', 'sass', 'sasslint', 'postcss', 'cssstats', 'sassdoc']);
-grunt.registerTask('watch-style', ['watch', 'sass_globbing', 'sass', 'sasslint', 'postcss', 'cssstats', 'sassdoc']);
+grunt.registerTask('default', [
+        'sass_globbing',
+        'sass', 'sasslint',
+        'postcss',
+        'sassdoc',
+    ]
+);
+grunt.registerTask('watch-style', [
+        'watch',
+        'sass_globbing',
+        'sass',
+        'sasslint',
+        'postcss',
+        'sassdoc',
+    ]
+);
+grunt.registerTask('analyze-style', [
+        'analyzecss',
+        'csslint',
+        'parker',
+    ]
+);

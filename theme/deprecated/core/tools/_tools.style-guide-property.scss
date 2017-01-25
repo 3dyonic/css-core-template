@@ -1,4 +1,5 @@
 /// Mixin for $property definition using style-guide map
+/// @exclude ddd
 /// @param {css property} $property - Property to be defined with style-guide value
 /// @param {variable map} $map - style guide map
 /// @param {map key} $key - style guide map key

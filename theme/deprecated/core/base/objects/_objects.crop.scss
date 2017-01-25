@@ -1,6 +1,6 @@
 // #CROP
 /// A list of cropping ratios that get generated as modifier classes.
-$inuit-crops: (
+$lcc-crops: (
   (2:1),
   (4:3),
   (16:9),
@@ -52,7 +52,7 @@ $inuit-crops: (
 /// Generate a series of crop classes to be used like so:
 /// @example <div class="o-crop  o-crop--16:9">
 
-@each $crop in $inuit-crops {
+@each $crop in $lcc-crops {
 
   @each $antecedent, $consequent in $crop {
 

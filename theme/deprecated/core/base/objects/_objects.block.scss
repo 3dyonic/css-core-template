@@ -9,7 +9,7 @@
 }
 
 .o-block__img {
-  margin-bottom: $inuit-global-spacing-unit;
+  margin-bottom: $lcc-global-spacing-unit;
 
   /* Size variants.
      ====================================================================== */
@@ -19,19 +19,19 @@
   }
 
   .o-block--tiny > & {
-    margin-bottom: $inuit-global-spacing-unit-tiny;
+    margin-bottom: $lcc-global-spacing-unit-tiny;
   }
 
   .o-block--small > & {
-    margin-bottom: $inuit-global-spacing-unit-small;
+    margin-bottom: $lcc-global-spacing-unit-small;
   }
 
   .o-block--large > & {
-    margin-bottom: $inuit-global-spacing-unit-large;
+    margin-bottom: $lcc-global-spacing-unit-large;
   }
 
   .o-block--huge > & {
-    margin-bottom: $inuit-global-spacing-unit-huge;
+    margin-bottom: $lcc-global-spacing-unit-huge;
   }
 
 }

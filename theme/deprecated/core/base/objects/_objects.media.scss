@@ -4,13 +4,13 @@
 // http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
 
 .o-media {
-  @include inuit-clearfix();
+  @include lcc-clearfix();
   display: block;
 }
 
 .o-media__img {
   float: left;
-  margin-right: $inuit-global-spacing-unit;
+  margin-right: $lcc-global-spacing-unit;
 
   > img {
     display: block;
@@ -37,14 +37,14 @@
 .o-media--tiny {
 
   > .o-media__img {
-    margin-right: $inuit-global-spacing-unit-tiny;
+    margin-right: $lcc-global-spacing-unit-tiny;
   }
 
   &.o-media--reverse {
 
     > .o-media__img {
       margin-right: 0;
-      margin-left: $inuit-global-spacing-unit-tiny;
+      margin-left: $lcc-global-spacing-unit-tiny;
     }
 
   }
@@ -54,14 +54,14 @@
 .o-media--small {
 
   > .o-media__img {
-    margin-right: $inuit-global-spacing-unit-small;
+    margin-right: $lcc-global-spacing-unit-small;
   }
 
   &.o-media--reverse {
 
     > .o-media__img {
       margin-right: 0;
-      margin-left: $inuit-global-spacing-unit-small;
+      margin-left: $lcc-global-spacing-unit-small;
     }
 
   }
@@ -71,14 +71,14 @@
 .o-media--large {
 
   > .o-media__img {
-    margin-right: $inuit-global-spacing-unit-large;
+    margin-right: $lcc-global-spacing-unit-large;
   }
 
   &.o-media--reverse {
 
     > .o-media__img {
       margin-right: 0;
-      margin-left: $inuit-global-spacing-unit-large;
+      margin-left: $lcc-global-spacing-unit-large;
     }
 
   }
@@ -88,14 +88,14 @@
 .o-media--huge {
 
   > .o-media__img {
-    margin-right: $inuit-global-spacing-unit-huge;
+    margin-right: $lcc-global-spacing-unit-huge;
   }
 
   &.o-media--reverse {
 
     > .o-media__img {
       margin-right: 0;
-      margin-left: $inuit-global-spacing-unit-huge;
+      margin-left: $lcc-global-spacing-unit-huge;
     }
 
   }
@@ -109,7 +109,7 @@
   > .o-media__img {
     float: right;
     margin-right: 0;
-    margin-left: $inuit-global-spacing-unit;
+    margin-left: $lcc-global-spacing-unit;
   }
 
 }

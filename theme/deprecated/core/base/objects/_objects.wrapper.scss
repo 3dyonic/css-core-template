@@ -1,0 +1,42 @@
+// #WRAPPER
+
+/// Page-level constraining and wrapping elements.
+$lcc-wrapper-width: 1200px !default;
+
+/* stylelint-disable */
+@if (type-of($lcc-wrapper-width) != number) {
+  @error "`#{$lcc-wrapper-width}` needs to be a number."
+}
+
+/* stylelint-enable */
+
+.o-wrapper {
+  @include lcc-clearfix();
+  padding-right: $lcc-global-spacing-unit;
+  padding-left: $lcc-global-spacing-unit;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $lcc-wrapper-width;
+}
+
+// Size variants.
+
+.o-wrapper--tiny {
+  padding-right: $lcc-global-spacing-unit-tiny;
+  padding-left: $lcc-global-spacing-unit-tiny;
+}
+
+.o-wrapper--small {
+  padding-right: $lcc-global-spacing-unit-small;
+  padding-left: $lcc-global-spacing-unit-small;
+}
+
+.o-wrapper--large {
+  padding-right: $lcc-global-spacing-unit-large;
+  padding-left: $lcc-global-spacing-unit-large;
+}
+
+.o-wrapper--huge {
+  padding-right: $lcc-global-spacing-unit-huge;
+  padding-left: $lcc-global-spacing-unit-huge;
+}

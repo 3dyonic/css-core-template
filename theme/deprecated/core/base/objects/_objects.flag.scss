@@ -31,7 +31,7 @@
 
 .o-flag__img {
   width: 1px; // [1]
-  padding-right: $inuit-global-spacing-unit;
+  padding-right: $lcc-global-spacing-unit;
 
   // 1. Fixes problem with images disappearing.
 
@@ -59,14 +59,14 @@
 .o-flag--tiny {
 
   > .o-flag__img {
-    padding-right: $inuit-global-spacing-unit-tiny;
+    padding-right: $lcc-global-spacing-unit-tiny;
   }
 
   &.o-flag--reverse {
 
     > .o-flag__img {
       padding-right: 0;
-      padding-left: $inuit-global-spacing-unit-tiny;
+      padding-left: $lcc-global-spacing-unit-tiny;
     }
 
   }
@@ -76,14 +76,14 @@
 .o-flag--small {
 
   > .o-flag__img {
-    padding-right: $inuit-global-spacing-unit-small;
+    padding-right: $lcc-global-spacing-unit-small;
   }
 
   &.o-flag--reverse {
 
     > .o-flag__img {
       padding-right: 0;
-      padding-left: $inuit-global-spacing-unit-small;
+      padding-left: $lcc-global-spacing-unit-small;
     }
 
   }
@@ -93,14 +93,14 @@
 .o-flag--large {
 
   > .o-flag__img {
-    padding-right: $inuit-global-spacing-unit-large;
+    padding-right: $lcc-global-spacing-unit-large;
   }
 
   &.o-flag--reverse {
 
     > .o-flag__img {
       padding-right: 0;
-      padding-left: $inuit-global-spacing-unit-large;
+      padding-left: $lcc-global-spacing-unit-large;
     }
 
   }
@@ -110,14 +110,14 @@
 .o-flag--huge {
 
   > .o-flag__img {
-    padding-right: $inuit-global-spacing-unit-huge;
+    padding-right: $lcc-global-spacing-unit-huge;
   }
 
   &.o-flag--reverse {
 
     > .o-flag__img {
       padding-right: 0;
-      padding-left: $inuit-global-spacing-unit-huge;
+      padding-left: $lcc-global-spacing-unit-huge;
     }
 
   }
@@ -149,7 +149,7 @@
 
   > .o-flag__img {
     padding-right: 0; // [3]
-    padding-left: $inuit-global-spacing-unit; // [3]
+    padding-left: $lcc-global-spacing-unit; // [3]
   }
 }
 

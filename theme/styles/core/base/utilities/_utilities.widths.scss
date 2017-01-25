@@ -1,14 +1,14 @@
 /// #WIDTHS
-/// inuitcss generates a series of utility classes that give a fluid width to
+/// lcccss generates a series of utility classes that give a fluid width to
 /// whichever element they’re applied, e.g.:
 /// <img src="" alt="" class="u-1/2" />
 /// These classes are most commonly used in conjunction with our layout system,
 ///e.g.:
 ///   <div class="o-layout__item  u-1/2">
-/// By default, inuitcss will also generate responsive variants of each of these
+/// By default, lcccss will also generate responsive variants of each of these
 /// classes by using your Sass MQ configuration, e.g.:
 /// @example  <div class="o-layout__item  u-1/1  u-1/2@tablet  u-1/3@desktop">
-/// Optionally, inuitcss can generate offset classes which can push and pull
+/// Optionally, lcccss can generate offset classes which can push and pull
 /// elements left and right by a specified amount, e.g.:
 ///
 /// <div class="o-layout__item  u-2/3  u-pull-1/3">
@@ -17,7 +17,7 @@
 ///items in a layout.
 ///
 /// N.B. This option is turned off by default.
-/// Which fractions would you like in your grid system(s)? By default, inuitcss
+/// Which fractions would you like in your grid system(s)? By default, lcccss
 /// provides you fractions of one whole, halves, thirds, quarters and fifths,
 /// e.g.:
 ///
@@ -26,9 +26,9 @@
 ///   .u-3/4
 ///   .u-2/3
 
-$inuit-fractions: 1 2 3 4 5 !default;
+$lcc-fractions: 1 2 3 4 5 !default;
 
-/// Optionally, inuitcss can generate classes to offset items by a certain width.
+/// Optionally, lcccss can generate classes to offset items by a certain width.
 /// Would you like to generate these types of class as well? E.g.:
 ///
 ///   .u-push-1/3
@@ -36,17 +36,17 @@ $inuit-fractions: 1 2 3 4 5 !default;
 ///   .u-pull-1/5
 ///   .u-push-2/3
 
-$inuit-offsets: false !default;
+$lcc-offsets: false !default;
 
-/// By default, inuitcss uses fractions-like classes like `<div class="u-1/4">`.
+/// By default, lcccss uses fractions-like classes like `<div class="u-1/4">`.
 /// You can change the `/` to whatever you fancy with this variable.
-$inuit-widths-delimiter: \/ !default;
+$lcc-widths-delimiter: \/ !default;
 
 /// When using Sass-MQ, this defines the separator for the breakpoints suffix
 /// in the class name. By default, we are generating the responsive suffixes
 /// for the classes with a `@` symbol so you get classes like:
 /// <div class="u-3/12@mobile">
-$inuit-widths-breakpoint-separator: \@ !default;
+$lcc-widths-breakpoint-separator: \@ !default;
 
 /// A mixin to spit out our width classes. Pass in the columns we want the widths
 /// to have, and an optional suffix for responsive widths. E.g. to create thirds
@@ -54,7 +54,7 @@ $inuit-widths-breakpoint-separator: \@ !default;
 ///
 /// @include widths(3 4, -sm);
 
-@mixin inuit-widths($columns, $breakpoint: null) {
+@mixin lcc-widths($columns, $breakpoint: null) {
 
   // Loop through the number of columns for each denominator of our fractions.
   @each $denominator in $columns {
@@ -64,21 +64,21 @@ $inuit-widths-breakpoint-separator: \@ !default;
     @for $numerator from 1 through $denominator {
 
       // Build a class in the format `.u-3/4[@<breakpoint>]`.
-      .u-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+      .u-#{$numerator}#{$lcc-widths-delimiter}#{$denominator}#{$breakpoint} {
         width: ($numerator / $denominator) * 100% !important;
       }
 
-      @if ($inuit-offsets == true) {
+      @if ($lcc-offsets == true) {
         // 1. Reset any leftover or conflicting `left`/`right` values.
         // Build a class in the format `.u-push-1/2[@<breakpoint>]`.
-        .u-push-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+        .u-push-#{$numerator}#{$lcc-widths-delimiter}#{$denominator}#{$breakpoint} {
           position: relative !important;
           right: auto !important; /// [1]
           left: ($numerator / $denominator) * 100% !important;
         }
 
         // Build a class in the format `.u-pull-5/6[@<breakpoint>]`.
-        .u-pull-#{$numerator}#{$inuit-widths-delimiter}#{$denominator}#{$breakpoint} {
+        .u-pull-#{$numerator}#{$lcc-widths-delimiter}#{$denominator}#{$breakpoint} {
           position: relative !important;
           right: ($numerator / $denominator) * 100% !important;
           left: auto !important; // [1]
@@ -99,9 +99,9 @@ $inuit-widths-breakpoint-separator: \@ !default;
 /// <div class="u-7/12">
 ///
 /// The following will generate widths helper classes based on the fractions
-/// defined in the `$inuit-fractions` list.
+/// defined in the `$lcc-fractions` list.
 
-@include inuit-widths($inuit-fractions);
+@include lcc-widths($lcc-fractions);
 
 /// If we’re using Sass-MQ, automatically generate grid system(s) for each of our
 /// defined breakpoints, and give them a Responsive Suffix, e.g.:
@@ -109,10 +109,10 @@ $inuit-widths-breakpoint-separator: \@ !default;
 
 @if (variable-exists(mq-breakpoints)) {
 
-  @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+  @each $lcc-bp-name, $lcc-bp-value in $mq-breakpoints {
 
-    @include mq($from: $inuit-bp-name) {
-      @include inuit-widths($inuit-fractions, #{$inuit-widths-breakpoint-separator}#{$inuit-bp-name});
+    @include mq($from: $lcc-bp-name) {
+      @include lcc-widths($lcc-fractions, #{$lcc-widths-breakpoint-separator}#{$lcc-bp-name});
     }
 
   }

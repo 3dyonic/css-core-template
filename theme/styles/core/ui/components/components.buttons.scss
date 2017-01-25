@@ -8,7 +8,7 @@
 
 // decide whether its enabled or not using 'lcc-get-comp-config($component-name-in-config-components-map)
 // and cross check that theme component is not enabled
-@if verify-core(buttons) == true {
+@if $config-core-buttons {
   .c-btn {
     display: inline-block; // [1]
     vertical-align: middle; // [2]
@@ -16,7 +16,7 @@
     text-align: center; // [4]
     margin: 0; // [4]
     cursor: pointer; // [5]
-    padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+    padding: $lcc-global-spacing-unit-small $lcc-global-spacing-unit;
     transition: $global-transition;
     border-radius: $global-radius;
   }
@@ -79,11 +79,11 @@
 
   // Size variants
   .c-btn--small {
-    padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+    padding: $lcc-global-spacing-unit-tiny $lcc-global-spacing-unit-small;
   }
 
   .c-btn--large {
-    padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
+    padding: $lcc-global-spacing-unit $lcc-global-spacing-unit-large;
   }
 
   // Ghost buttons
@@ -92,7 +92,7 @@
 
   .c-btn--ghost {
     border: $btn-ghost-border-width solid currentColor;
-    padding: ($inuit-global-spacing-unit-small - $btn-ghost-border-width) ($inuit-global-spacing-unit - $btn-ghost-border-width);
+    padding: ($lcc-global-spacing-unit-small - $btn-ghost-border-width) ($lcc-global-spacing-unit - $btn-ghost-border-width);
 
     &,
     &:hover,
@@ -102,11 +102,11 @@
     }
 
     &.c-btn--small {
-      padding: ($inuit-global-spacing-unit-tiny - $btn-ghost-border-width) ($inuit-global-spacing-unit-small - $btn-ghost-border-width);
+      padding: ($lcc-global-spacing-unit-tiny - $btn-ghost-border-width) ($lcc-global-spacing-unit-small - $btn-ghost-border-width);
     }
 
     &.c-btn--large {
-      padding: ($inuit-global-spacing-unit - $btn-ghost-border-width) ($inuit-global-spacing-unit-large - $btn-ghost-border-width);
+      padding: ($lcc-global-spacing-unit - $btn-ghost-border-width) ($lcc-global-spacing-unit-large - $btn-ghost-border-width);
     }
 
     &.c-btn--primary {

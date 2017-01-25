@@ -6,9 +6,9 @@
 @import "../core/settings/settings.config";
 //----- takes main configuration from theme
 @import "../settings/settings.config";
+//----- takes global corevariables from core
+@import "../core/settings/settings.core";
 //----- takes global variables from core
 @import "../core/settings/settings.global";
 //----- takes global variables from theme
 @import "../settings/settings.global";
-//----- takes global corevariables from core
-@import "../core/settings/settings.core";
